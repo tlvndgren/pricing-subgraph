@@ -1,4 +1,4 @@
-type Price {
+type Price @key(fields: "id") {
     id: ID!
     usdPrice: Float
     priceDecorator: String
