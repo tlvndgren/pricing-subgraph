@@ -4,7 +4,7 @@ const { buildSubgraphSchema } = require("@apollo/federation")
 const typeDefs = gql(fs.readFileSync("./prices.graphql", 'utf8'));
 const prices = require("./data/prices.js");
 
-const port = process.env.PORT || 4003
+const port = process.env.PORT || 4002
 
 const resolvers = {
     Price: {
