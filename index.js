@@ -8,8 +8,8 @@ const port = process.env.PORT || 4002
 
 const resolvers = {
     Price: {
-        __resolverReference(object) {
-            return prices.find((price) => price.id === object.id);
+        __resolveReference(object) {
+            return prices.find((price) => price.id === parseInt(object.id, 10));
         },
     },
     Query: {
