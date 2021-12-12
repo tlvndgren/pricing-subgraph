@@ -4,13 +4,13 @@ directive @tag(name: String!) repeatable on
   | OBJECT
   | UNION
 
-type Price @key(fields: "id") @tag(name: "private") {
+type Price @key(fields: "id") {
     id: ID! 
-    usdPrice: Float 
+    usdPrice: Float
     priceDecorator: String 
 }
 
 extend type Query {
-    prices: [Price]
+    prices: [Price] 
     price(id: ID!): Price!
 }
