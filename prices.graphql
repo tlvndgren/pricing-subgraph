@@ -11,6 +11,6 @@ type Price @key(fields: "id") @tag(name: "private") {
 }
 
 extend type Query {
-    prices: [Price] @tag(name: "private")
-    price(id: ID!): Price! @tag(name: "private")
+    prices: [Price]
+    price(id: ID!): Price!
 }
