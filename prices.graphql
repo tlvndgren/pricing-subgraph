@@ -5,9 +5,9 @@ directive @tag(name: String!) repeatable on
   | UNION
 
 type Price @key(fields: "id") @tag(name: "private") {
-    id: ID!
-    usdPrice: Float
-    priceDecorator: String
+    id: ID! 
+    usdPrice: Float 
+    priceDecorator: String 
 }
 
 extend type Query {
