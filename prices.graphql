@@ -4,9 +4,13 @@ directive @tag(name: String!) repeatable on
   | OBJECT
   | UNION
 
+"The price calculated in the local currency."
 type Price @key(fields: "id") {
+    "Internal ID mapping for the price."
     id: ID! 
+    "Numeric price in the local currency."
     usdPrice: Float
+    "Currency decorator."
     priceDecorator: String 
 }
 
