@@ -2,77 +2,77 @@ const prices = [
   {
     "id": 1,
     "usdPrice": 29.67,
-    "priceDecorators": "$"
+    "priceDecorator": "$"
   },
   {
     "id": 2,
     "usdPrice": 48.84,
-    "priceDecorators": "$"
+    "priceDecorator": "$"
   },
   {
     "id": 3,
     "usdPrice": 35.99,
-    "priceDecorators": "$"
+    "priceDecorator": "$"
   },
   {
     "id": 4,
     "usdPrice": 14.26,
-    "priceDecorators": "$"
+    "priceDecorator": "$"
   },
   {
     "id": 5,
     "usdPrice": 99.3,
-    "priceDecorators": "$"
+    "priceDecorator": "$"
   },
   {
     "id": 6,
     "usdPrice": 85.48,
-    "priceDecorators": "$"
+    "priceDecorator": "$"
   },
   {
     "id": 7,
     "usdPrice": 53.72,
-    "priceDecorators": "$"
+    "priceDecorator": "$"
   },
   {
     "id": 8,
     "usdPrice": 65.08,
-    "priceDecorators": "$"
+    "priceDecorator": "$"
   },
   {
     "id": 9,
     "usdPrice": 64.46,
-    "priceDecorators": "$"
+    "priceDecorator": "$"
   },
   {
     "id": 10,
     "usdPrice": 44.36,
-    "priceDecorators": "$"
+    "priceDecorator": "$"
   },
   {
     "id": 11,
     "usdPrice": 0.93,
-    "priceDecorators": "$"
+    "priceDecorator": "$"
   },
   {
     "id": 12,
     "usdPrice": 57.38,
-    "priceDecorators": "$"
+    "priceDecorator": "$"
   },
   {
     "id": 13,
     "usdPrice": 9.46,
-    "priceDecorators": "$"
+    "priceDecorator": "$"
   },
   {
     "id": 14,
     "usdPrice": 75.18,
-    "priceDecorators": "$"
+    "priceDecorator": "$"
   },
   {
     "id": 15,
     "usdPrice": 35.19,
-    "priceDecorators": "$"
+    "priceDecorator": "$"
   }
 ]
 
