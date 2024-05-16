@@ -1,9 +1,3 @@
-directive @tag(name: String!) repeatable on
-  | FIELD_DEFINITION
-  | INTERFACE
-  | OBJECT
-  | UNION
-
 "The price calculated in the local currency."
 type Price @key(fields: "id") {
     "Internal ID mapping for the price."
@@ -14,9 +8,33 @@ type Price @key(fields: "id") {
     priceDecorator: String 
 }
 
-extend type Query {
+type Query {
     "Get a list of all prices"
     prices: [Price] 
     "Get a single price"
     price(id: ID!): Price!
 }
+
+extend schema
+  @link(url: "https://specs.apollo.dev/federation/v2.0",
+        import: ["@key"])
+  @contact(
+    name: "Catalog's @Prices Server Team"
+    url: "https://myteam.slack.com/archives/teams-chat-room-url"
+    description: "send urgent issues to [#users-oncall](https://yourteam.slack.com/archives/oncall)."
+  )
+
+directive @contact(
+  "Contact title of the subgraph owner"
+  name: String!
+  "URL where the subgraph's owner can be reached"
+  url: String
+  "Other relevant notes can be included here; supports markdown links"
+  description: String
+) on SCHEMA
+
+directive @tag(name: String!) repeatable on
+  | FIELD_DEFINITION
+  | INTERFACE
+  | OBJECT
+  | UNION
