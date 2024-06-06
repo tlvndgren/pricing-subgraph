@@ -25,7 +25,8 @@ const resolvers = {
                         resolve(prices.find((price) => price.id === parseInt(id, 10)));
                     }, 2000);
             });
-        return await delay();
+        const priceResult = await delay();
+        return priceResult;
         }
     },
     Query: {
