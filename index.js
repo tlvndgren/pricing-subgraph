@@ -24,10 +24,47 @@ const resolvers = {
     },
     Query: {
         price(_, { id }) {
-            return prices.find((price) => price.id === parseInt(id, 10));
+            let returnPrice;
+            function resolveAfter2Seconds() {
+                return new Promise((resolve) => {
+                  setTimeout(() => {
+                    resolve(prices.find((price) => price.id === parseInt(id, 10)));
+                  }, 2000);
+                });
+            }
+            async function asyncCall() {
+                console.log('calling');
+                const result = await resolveAfter2Seconds();
+                console.log(result);
+                return result
+            }
+            returnPrice = asyncCall();
+            console.log("returnPrice:", returnPrice)
+            return returnPrice
+            // setTimeout(() => {
+                // console.log("Taking a break for defer")
+            //  }, "2000");
+            // return prices.find((price) => price.id === parseInt(id, 10));
         },
         prices() {
-            return prices
+            let returnPrices;
+            function resolveAfter2Seconds() {
+                return new Promise((resolve) => {
+                  setTimeout(() => {
+                    resolve(prices);
+                  }, 2000);
+                });
+            }
+            async function asyncCall() {
+                console.log('calling');
+                const result = await resolveAfter2Seconds();
+                console.log(result);
+                return result
+            }
+            returnPrices = asyncCall();
+            console.log("returnPrices:", returnPrices)
+            return returnPrices
+            // return prices
         }
     }
 };
