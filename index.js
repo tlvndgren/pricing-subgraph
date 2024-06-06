@@ -16,7 +16,6 @@ import { prices } from "./data/prices.js";
 // Variable Definitions
 const port = process.env.PORT || 4002
 
-
 // const resolvers = {
 //     Price: {
 //         __resolveReference(object) {
@@ -45,7 +44,10 @@ const resolvers = {
                      resolve(prices.find((price) => price.id == parseInt(object.id, 10)));
                  }, 200);
             });
-            return await delay();
+            const priceResult = await delay();
+            console.log("priceResult:", priceResult);
+            return priceResult;
+            // return await delay();
         },
     },
     Query: {
