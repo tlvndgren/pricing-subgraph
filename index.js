@@ -19,6 +19,7 @@ const port = process.env.PORT || 4002
 const resolvers = {
     Price: {
         async __resolveReference(object) {
+            console.log("reference.price")
             // return prices.find((price) => price.id === parseInt(object.id, 10));
             const delay = new Promise((resolve) => {
                     setTimeout(() => {
@@ -32,6 +33,7 @@ const resolvers = {
     },
     Query: {
         async price(_, { id }) {
+            console.log("query.price")
             function resolveAfter2Seconds() {
                 return new Promise((resolve) => {
                   setTimeout(() => {
@@ -51,6 +53,7 @@ const resolvers = {
             return prices.find((price) => price.id === parseInt(id, 10));
         },
         prices() {
+            console.log("query.prices")
             let returnPrices;
             function resolveAfter2Seconds() {
                 return new Promise((resolve) => {
