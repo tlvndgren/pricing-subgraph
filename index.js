@@ -20,14 +20,12 @@ const resolvers = {
     Price: {
         async __resolveReference(object) {
             // return prices.find((price) => price.id === parseInt(object.id, 10));
-            // async price(_, { id }) {
-            let returnPrice;
             const delay = new Promise((resolve) => {
                     setTimeout(() => {
                         resolve(prices.find((price) => price.id === parseInt(id, 10)));
                     }, 2000);
             });
-        return await delay;
+        return await delay();
         }
     },
     Query: {
