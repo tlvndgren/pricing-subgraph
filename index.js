@@ -16,38 +16,27 @@ import { prices } from "./data/prices.js";
 // Variable Definitions
 const port = process.env.PORT || 4002
 
-// const resolvers = {
-//     Price: {
-//         __resolveReference(object) {
-//             console.log("__reference.price")
-//             return prices.find((price) => price.id === parseInt(object.id, 10));
-//         },
-//     },
-//     Query: {
-//         price(_, { id }) {
-//             console.log("query.price")
-//             return prices.find((price) => price.id === parseInt(id, 10));
-//         },
-//         prices() {
-//             console.log("query.prices")
-//             return prices
-//         }
-//     }
-// };
-
 const resolvers = {
     Price: {
-        async __resolveReference(object) {
+        __resolveReference(object) {
             console.log("__reference.price")
-            const delay = new Promise((resolve) => {
-                 setTimeout(() => {
-                     resolve(prices.find((price) => price.id == parseInt(object.id, 10)));
-                 }, 200);
-            });
-            const priceResult = await delay();
-            console.log("priceResult:", priceResult);
-            return priceResult;
-            // return await delay();
+            let returnPrice;
+            function resolveAfter2Seconds() {
+                return new Promise((resolve) => {
+                  setTimeout(() => {
+                    resolve(prices.find((price) => price.id === parseInt(object.id, 10)));
+                  }, 2000);
+                });
+            }
+            async function asyncCall() {
+                console.log('calling');
+                const result = await resolveAfter2Seconds();
+                console.log(result);
+                return result
+            }
+            returnPrice = asyncCall();
+            console.log("returnPrice:", returnPrice)
+            return returnPrice
         },
     },
     Query: {
@@ -61,6 +50,34 @@ const resolvers = {
         }
     }
 };
+
+
+// const resolvers = {
+//     Price: {
+//         async __resolveReference(object) {
+//             console.log("__reference.price")
+//             const delay = new Promise((resolve) => {
+//                  setTimeout(() => {
+//                      resolve(prices.find((price) => price.id == parseInt(object.id, 10)));
+//                  }, 200);
+//             });
+//             const priceResult = await delay();
+//             console.log("priceResult:", priceResult);
+//             return priceResult;
+//             // return await delay();
+//         },
+//     },
+//     Query: {
+//         price(_, { id }) {
+//             console.log("query.price")
+//             return prices.find((price) => price.id === parseInt(id, 10));
+//         },
+//         prices() {
+//             console.log("query.prices")
+//             return prices
+//         }
+//     }
+// };
 
 // Apollo Server Setup
 const server = new ApolloServer({ 
