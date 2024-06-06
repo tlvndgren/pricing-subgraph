@@ -38,6 +38,7 @@ const resolvers = {
                 }, 2000);
             });
             const priceResult = await delay();
+            console.log("priceResult", priceResult)
             return priceResult;
         
             // function resolveAfter2Seconds() {
