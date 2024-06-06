@@ -25,7 +25,7 @@ const resolvers = {
                 return new Promise((resolve) => {
                   setTimeout(() => {
                     resolve(prices.find((price) => price.id === parseInt(object.id, 10)));
-                  }, 2000);
+                  }, 1000);
                 });
             }
             async function asyncCall() {
