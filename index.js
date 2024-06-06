@@ -19,7 +19,24 @@ const port = process.env.PORT || 4002
 const resolvers = {
     Price: {
         __resolveReference(object) {
-            return prices.find((price) => price.id === parseInt(object.id, 10));
+            let returnPrice;
+            function resolveAfter2Seconds() {
+                return new Promise((resolve) => {
+                  setTimeout(() => {
+                    resolve(prices.find((price) => price.id === parseInt(id, 10)));
+                  }, 2000);
+                });
+            }
+            async function asyncCall() {
+                console.log('calling');
+                const result = await resolveAfter2Seconds();
+                console.log(result);
+                return result
+            }
+            returnPrice = asyncCall();
+            console.log("returnPrice:", returnPrice)
+            return returnPrice
+            // return prices.find((price) => price.id === parseInt(object.id, 10));
         },
     },
     Query: {
