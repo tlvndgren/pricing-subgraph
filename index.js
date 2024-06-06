@@ -35,7 +35,7 @@ const resolvers = {
             function resolveAfter2Seconds() {
                 return new Promise((resolve) => {
                   setTimeout(() => {
-                    resolve(prices.find((price) => price.id === parseInt(id, 10)));
+                    resolve(prices.find((price) => price.id == parseInt(id, 10)));
                   }, 2000);
                 });
             }
@@ -48,9 +48,6 @@ const resolvers = {
             returnPrice = asyncCall();
             console.log("returnPrice:", returnPrice)
             return returnPrice
-            setTimeout(() => {
-                console.log("Taking a break for defer")
-             }, "2000");
             return prices.find((price) => price.id === parseInt(id, 10));
         },
         prices() {
