@@ -31,24 +31,31 @@ const resolvers = {
         }
     },
     Query: {
-        price(_, { id }) {
-            let returnPrice;
-            function resolveAfter2Seconds() {
-                return new Promise((resolve) => {
-                  setTimeout(() => {
+        async price(_, { id }) {
+            const delay = new Promise((resolve) => {
+                setTimeout(() => {
                     resolve(prices.find((price) => price.id === parseInt(id, 10)));
-                  }, 2000);
-                });
-            }
-            async function asyncCall() {
-                console.log('calling');
-                const result = await resolveAfter2Seconds();
-                console.log(result);
-                return result
-            }
-            returnPrice = asyncCall();
-            console.log("returnPrice:", returnPrice)
-            return returnPrice
+                }, 2000);
+            });
+            const priceResult = await delay();
+            return priceResult;
+        
+            // function resolveAfter2Seconds() {
+            //     return new Promise((resolve) => {
+            //       setTimeout(() => {
+            //         resolve(prices.find((price) => price.id === parseInt(id, 10)));
+            //       }, 2000);
+            //     });
+            // }
+            // async function asyncCall() {
+            //     console.log('calling');
+            //     const result = await resolveAfter2Seconds();
+            //     console.log(result);
+            //     return result
+            // }
+            // returnPrice = asyncCall();
+            // console.log("returnPrice:", returnPrice)
+            // return returnPrice
             // setTimeout(() => {
                 // console.log("Taking a break for defer")
             //  }, "2000");
