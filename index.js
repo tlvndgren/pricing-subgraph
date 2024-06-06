@@ -42,7 +42,7 @@ const resolvers = {
             console.log("__reference.price")
             const delay = new Promise((resolve) => {
                  setTimeout(() => {
-                     resolve(prices.find((price) => price.id === parseInt(object.id, 10)));
+                     resolve(prices.find((price) => price.id == parseInt(object.id, 10)));
                  }, 200);
             });
             return await delay();
